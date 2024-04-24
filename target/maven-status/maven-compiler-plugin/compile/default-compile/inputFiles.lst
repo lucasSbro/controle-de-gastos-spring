@@ -1,6 +1,7 @@
-/home/nova/Documentos/controle-de-gastos-spring/controle-de-gastos-spring/src/main/java/com/controle/controllers/ContasController.java
-/home/nova/Documentos/controle-de-gastos-spring/controle-de-gastos-spring/src/main/java/com/controle/dto/Mes.java
-/home/nova/Documentos/controle-de-gastos-spring/controle-de-gastos-spring/src/main/java/com/controle/ControleGastosApplication.java
-/home/nova/Documentos/controle-de-gastos-spring/controle-de-gastos-spring/src/main/java/com/controle/repository/ContaRepository.java
-/home/nova/Documentos/controle-de-gastos-spring/controle-de-gastos-spring/src/main/java/com/controle/service/ContaService.java
-/home/nova/Documentos/controle-de-gastos-spring/controle-de-gastos-spring/src/main/java/com/controle/dto/Conta.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/dto/Mes.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/dto/Conta.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/config/MongoConfig.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/controllers/ContasController.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/ControleGastosApplication.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/repository/ContaRepository.java
+/home/nova/Documentos/controle-de-gastos-spring/src/main/java/com/controle/service/ContaService.java

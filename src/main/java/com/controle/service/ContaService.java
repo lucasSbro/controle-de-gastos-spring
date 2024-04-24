@@ -14,6 +14,7 @@ public class ContaService {
     ContaRepository contaRepository;
 
     public List<Conta> getContas() {
+        System.out.println("Consultando contas...");
         return contaRepository.findAll();
     }
 }

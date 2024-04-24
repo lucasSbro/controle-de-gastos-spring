@@ -4,3 +4,4 @@ com/controle/dto/Mes.class
 com/controle/repository/ContaRepository.class
 com/controle/service/ContaService.class
 com/controle/controllers/ContasController.class
+com/controle/config/MongoConfig.class
