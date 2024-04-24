@@ -17,11 +17,6 @@ public class ContasController {
     @Autowired
     ContaService contaService;
 
-    @GetMapping("/teste")
-    public List<Conta> getContas1(){
-         return new ArrayList<>();
-    }
-
     @GetMapping
     public List<Conta> getContas(){
          return contaService.getContas();

@@ -11,5 +11,4 @@ public class ControleGastosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ControleGastosApplication.class, args);
 	}
-
 }
