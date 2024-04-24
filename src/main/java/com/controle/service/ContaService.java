@@ -2,6 +2,7 @@ package com.controle.service;
 
 import com.controle.dto.Conta;
 import com.controle.repository.ContaRepository;
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +17,9 @@ public class ContaService {
     public List<Conta> getContas() {
         System.out.println("Consultando contas...");
         return contaRepository.findAll();
+    }
+
+    public Conta salvar(Conta conta) {
+        return contaRepository.save(conta);
     }
 }
