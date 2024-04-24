@@ -1,6 +1,7 @@
 package com.controle.controllers;
 
 import com.controle.dto.Conta;
+import com.controle.dto.Mes;
 import com.controle.service.ContaService;
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,26 @@ public class ContasController {
          return contaService.getContas();
     }
 
+    @GetMapping("/{mes}")
+    public List<Conta> getContasMes(@PathVariable("mes") Mes mes){
+         return contaService.getContasMes(mes);
+    }
+
     @PostMapping
     public ResponseEntity salvar(Conta conta) {
         contaService.salvar(conta);
         return ResponseEntity.ok(conta);
+    }
+
+    @PutMapping
+    public ResponseEntity atualizar(Conta conta) {
+        contaService.atualizar(conta);
+        return ResponseEntity.ok(conta);
+    }
+
+    @DeleteMapping
+    public ResponseEntity delete(String id) {
+        contaService.delete(id);
+        return ResponseEntity.ok().build();
     }
 }
