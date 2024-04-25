@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "conta")
 public class Conta {
     @Id
-    ObjectId id;
+    String id;
     String gasto;
     Double valor;
     Mes mes;
