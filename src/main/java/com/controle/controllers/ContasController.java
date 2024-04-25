@@ -40,8 +40,8 @@ public class ContasController {
         return ResponseEntity.ok(conta);
     }
 
-    @DeleteMapping
-    public ResponseEntity delete(String id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable("id") String id) {
         contaService.delete(id);
         return ResponseEntity.ok().build();
     }

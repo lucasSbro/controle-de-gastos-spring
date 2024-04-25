@@ -27,14 +27,17 @@ public class ContaService {
     }
 
     public Conta salvar(Conta conta) {
+        System.out.println("Salvando: "+ conta.getGasto());
         return contaRepository.save(conta);
     }
 
     public void atualizar(Conta conta) {
+        System.out.println("Atualizando: "+ conta.getGasto());
         contaRepository.save(conta);
     }
 
     public void delete(String id) {
+        System.out.println("Deletando id: "+ id);
         contaRepository.deleteById(id);
     }
 }
