@@ -29,13 +29,13 @@ public class ContasController {
     }
 
     @PostMapping
-    public ResponseEntity salvar(Conta conta) {
+    public ResponseEntity salvar(@RequestBody Conta conta) {
         contaService.salvar(conta);
         return ResponseEntity.ok(conta);
     }
 
     @PutMapping
-    public ResponseEntity atualizar(Conta conta) {
+    public ResponseEntity atualizar(@RequestBody Conta conta) {
         contaService.atualizar(conta);
         return ResponseEntity.ok(conta);
     }
