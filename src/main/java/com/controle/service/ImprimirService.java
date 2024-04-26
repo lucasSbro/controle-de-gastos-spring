@@ -41,6 +41,13 @@ public class ImprimirService {
         createCell(row, 1, "Descrição", style);
         createCell(row, 2, "Valor", style);
         createCell(row, 3, "Entrada/Saida", style);
+
+        // Define manualmente a largura das colunas
+        sheet.setColumnWidth(0, 256 * 10); // Defina a largura da coluna 0 (ID) em 10 caracteres
+        sheet.setColumnWidth(1, 256 * 20); // Defina a largura da coluna 1 (Descrição) em 20 caracteres
+        sheet.setColumnWidth(2, 256 * 15); // Defina a largura da coluna 2 (Valor) em 15 caracteres
+        sheet.setColumnWidth(3, 256 * 15); // Defina a largura da coluna 3 (Entrada/Saida) em 15 caracteres
+
     }
     private void createCell(Row row, int columnCount, Object valueOfCell, CellStyle style) {
         sheet.autoSizeColumn(columnCount);
