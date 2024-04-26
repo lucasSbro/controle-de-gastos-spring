@@ -1,13 +1,6 @@
 package com.controle.service;
 
 import com.controle.dto.Conta;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
@@ -16,6 +9,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,9 +30,17 @@ public class ImprimirService {
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
         XSSFFont font = workbook.createFont();
-        font.setBold(true);
-        font.setFontHeight(16);
+
+        // Defina os atributos da nova fonte
+        font.setFontName("Arial"); // Define o tipo de fonte como Arial
+        font.setFontHeightInPoints((short) 16); // Define o tamanho da fonte como 16 pontos
+        font.setBold(true); // Define a fonte como negrito
+
+        // Aplica a nova fonte ao estilo de célula
         style.setFont(font);
+
+        // O restante do seu código permanece inalterado
+        createCell(row, 0, "ID", style);
         createCell(row, 0, "ID", style);
         createCell(row, 1, "Descrição", style);
         createCell(row, 2, "Valor", style);
@@ -50,7 +54,7 @@ public class ImprimirService {
 
     }
     private void createCell(Row row, int columnCount, Object valueOfCell, CellStyle style) {
-        sheet.autoSizeColumn(columnCount);
+
         Cell cell = row.createCell(columnCount);
         if (valueOfCell instanceof Integer) {
             cell.setCellValue((Integer) valueOfCell);
@@ -67,7 +71,12 @@ public class ImprimirService {
         int rowCount = 1;
         CellStyle style = workbook.createCellStyle();
         XSSFFont font = workbook.createFont();
-        font.setFontHeight(14);
+
+        // Defina os atributos da nova fonte
+        font.setFontName("Arial"); // Define o tipo de fonte como Arial
+        font.setFontHeightInPoints((short) 14); // Define o tamanho da fonte como 14 pontos
+
+        // Aplica a nova fonte ao estilo de célula
         style.setFont(font);
         for (Conta record: contas) {
             Row row = sheet.createRow(rowCount++);
