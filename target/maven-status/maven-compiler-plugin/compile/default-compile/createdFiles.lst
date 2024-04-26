@@ -1,6 +1,7 @@
 com/controle/dto/Conta.class
 com/controle/ControleGastosApplication.class
 com/controle/dto/Mes.class
+com/controle/service/ImprimirService.class
 com/controle/repository/ContaRepository.class
 com/controle/service/ContaService.class
 com/controle/controllers/ContasController.class

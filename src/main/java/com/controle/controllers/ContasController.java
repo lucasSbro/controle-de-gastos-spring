@@ -5,9 +5,15 @@ import com.controle.dto.Mes;
 import com.controle.service.ContaService;
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,5 +50,19 @@ public class ContasController {
     public ResponseEntity delete(@PathVariable("id") String id) {
         contaService.delete(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/imprimir/{mes}")
+    public ResponseEntity<byte[]> imprimir(@PathVariable("mes") Mes mes) throws IOException {
+
+        ByteArrayOutputStream xlsx = contaService.imprimir(mes);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.setContentDispositionFormData("attachment", "relatorio_" + mes + ".xlsx");
+        byte[] bytes = xlsx.toByteArray();
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(bytes);
     }
 }
