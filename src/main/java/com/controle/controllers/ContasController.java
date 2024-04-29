@@ -3,18 +3,23 @@ package com.controle.controllers;
 import com.controle.dto.Conta;
 import com.controle.dto.Mes;
 import com.controle.service.ContaService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/conta")
+//@SecurityRequirement(name = "contas")
 public class ContasController {
 
     @Autowired

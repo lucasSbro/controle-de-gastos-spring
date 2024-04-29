@@ -1,8 +1,11 @@
 package com.controle.auth.user;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.controle.dto.Conta;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,7 +33,9 @@ public class Usuario implements UserDetails  {
     private String firstName;
     private String lastName;
     private String email;
+    @JsonIgnore
     private String password;
+//    private List<Conta> contas = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Role role;

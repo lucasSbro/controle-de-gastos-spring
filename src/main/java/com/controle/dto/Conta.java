@@ -1,5 +1,6 @@
 package com.controle.dto;
 
+import com.controle.auth.user.Usuario;
 import jakarta.persistence.Id;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -14,4 +15,5 @@ public class Conta {
     Double valor;
     Mes mes;
     Boolean positivo;
+    Usuario usuario;
 }
