@@ -1,8 +1,8 @@
 package com.controle.controllers;
 
-import com.controle.dto.Conta;
-import com.controle.dto.Mes;
-import com.controle.service.ContaService;
+import com.controle.conta.dto.Conta;
+import com.controle.conta.dto.Mes;
+import com.controle.conta.service.ContaService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

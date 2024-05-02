@@ -1,4 +1,4 @@
-package com.controle.dto;
+package com.controle.conta.dto;
 
 public enum Mes {
     JANEIRO("Janeiro"),

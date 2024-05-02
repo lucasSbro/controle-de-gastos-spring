@@ -1,9 +1,8 @@
-package com.controle.dto;
+package com.controle.conta.dto;
 
 import com.controle.auth.user.Usuario;
 import jakarta.persistence.Id;
 import lombok.Data;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data

@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-//@EnableMongoRepositories(basePackages = "com.controle.repository")
+//@EnableMongoRepositories(basePackages = "com.controle.conta.repository")
 public class ControleGastosApplication {
 
 	public static void main(String[] args) {

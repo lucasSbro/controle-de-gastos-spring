@@ -1,11 +1,10 @@
-package com.controle.service;
+package com.controle.conta.service;
 
-import com.controle.auth.config.JwtService;
 import com.controle.auth.user.Usuario;
 import com.controle.auth.user.UsuarioRepository;
-import com.controle.dto.Conta;
-import com.controle.dto.Mes;
-import com.controle.repository.ContaRepository;
+import com.controle.conta.dto.Conta;
+import com.controle.conta.dto.Mes;
+import com.controle.conta.repository.ContaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,22 +24,16 @@ public class ContaService {
     ContaRepository contaRepository;
 
     @Autowired
-    ImprimirService imprimirService;
-
-    @Autowired
-    JwtService jwtService;
-
-    @Autowired
     UsuarioRepository usuarioRepository;
 
     public List<Conta> getContas() {
         log.info("Consultando todas contas...");
-        return contaRepository.findAll();
+        return contaRepository.findByUsuario(getUsuario());
     }
 
     public List<Conta> getContasMes(Mes mes) {
-        log.info("Consultando contas por mês...");
-        return contaRepository.findByMes(mes);
+        log.info("Consultando contas pelo mês: "+ mes);
+        return contaRepository.findByUsuarioAndMes(getUsuario(), mes);
     }
 
     public Conta salvar(Conta conta) {
@@ -61,7 +54,7 @@ public class ContaService {
 
     public ByteArrayOutputStream imprimir(Mes mes) throws IOException {
         log.info("Imprimindo relatório mês: "+ mes);
-        List<Conta> contas = contaRepository.findByMes(mes);
+        List<Conta> contas = contaRepository.findByUsuarioAndMes(getUsuario(), mes);
         ImprimirService imprimirService = new ImprimirService(contas);
         ByteArrayOutputStream response = imprimirService.generateExcelFile();
         return response;

@@ -1,6 +1,10 @@
-package com.controle.auth.auth;
+package com.controle.controllers;
 
 
+import com.controle.auth.auth.AuthenticationRequest;
+import com.controle.auth.auth.AuthenticationResponse;
+import com.controle.auth.auth.AuthenticationService;
+import com.controle.auth.auth.RegisterRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
