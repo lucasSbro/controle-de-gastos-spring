@@ -3,29 +3,33 @@ package com.controle.pagamento.service;
 import com.controle.pagamento.dto.*;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
-import com.stripe.model.*;
+import com.stripe.model.Token;
 import com.stripe.model.checkout.Session;
-import com.stripe.param.PaymentIntentCreateParams;
 import com.stripe.param.checkout.SessionCreateParams;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
 @Component
 public class StripeService {
 
-    @Value("${stripe.secretKey}")
-    private String secretKey;
+    @Autowired
+    private KeyService keyService;
+
+    public StripeService() {
+    }
+    public String getSecretKey() {
+       return keyService.getKey();
+    }
 
     public StripeResponse criarPagamento(CreatePaymentRequest createPaymentRequest) {
 
-        Stripe.apiKey = secretKey;
+        Stripe.apiKey = getSecretKey();
 
         SessionCreateParams.LineItem.PriceData.ProductData productData =
                 SessionCreateParams.LineItem.PriceData.ProductData.builder()
@@ -83,7 +87,8 @@ public class StripeService {
                 .build();
     }
     public StripeResponse capturarPagamento(String sessionId) {
-        Stripe.apiKey = secretKey;
+
+        Stripe.apiKey = getSecretKey();
 
         try {
             Session session = Session.retrieve(sessionId);
@@ -121,7 +126,7 @@ public class StripeService {
 
     public ResponseEntity<String> gerarTokenCartao(DadosCartao dadosCartao) {
         try {
-            Stripe.apiKey = secretKey;
+            Stripe.apiKey = getSecretKey();
 
             Token token = Token.create(Map.of(
                     "card", Map.of(
