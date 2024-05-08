@@ -105,7 +105,7 @@
 		<dependency>
 			<groupId>com.stripe</groupId>
 			<artifactId>stripe-java</artifactId>
-			<version>25.4.0</version>
+			<version>25.5.0</version>
 		</dependency>
 
 	</dependencies>
