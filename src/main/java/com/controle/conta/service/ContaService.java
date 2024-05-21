@@ -27,28 +27,33 @@ public class ContaService {
     UsuarioRepository usuarioRepository;
 
     public List<Conta> getContas() {
-        log.info("Consultando todas contas...");
-        return contaRepository.findByUsuario(getUsuario());
+        Usuario usuario = getUsuario();
+        log.info("Consultando todas contas... Usuário: "+ usuario.getEmail());
+        return contaRepository.findByUsuario(usuario);
     }
 
     public List<Conta> getContasMes(Mes mes) {
-        log.info("Consultando contas pelo mês: "+ mes);
-        return contaRepository.findByUsuarioAndMes(getUsuario(), mes);
+        Usuario usuario = getUsuario();
+        log.info("Consultando contas pelo mês: "+ mes + " Usuário: "+ usuario.getEmail());
+        return contaRepository.findByUsuarioAndMes(usuario, mes);
     }
 
     public Conta salvar(Conta conta) {
-        log.info("Salvando: "+ conta.getGasto());
-        conta.setUsuario(getUsuario());
+        Usuario usuario = getUsuario();
+        log.info("Salvando: "+ conta.getGasto() + " Usuário: "+ usuario.getEmail());
+        conta.setUsuario(usuario);
         return contaRepository.save(conta);
     }
 
     public void atualizar(Conta conta) {
-        log.info("Atualizando: "+ conta.getGasto());
+        Usuario usuario = getUsuario();
+        log.info("Atualizando: "+ conta.getGasto() + " Usuário: "+ usuario.getEmail());
         contaRepository.save(conta);
     }
 
     public void delete(String id) {
-        log.info("Deletando id: "+ id);
+        Usuario usuario = getUsuario();
+        log.info("Deletando id: "+ id + " Usuário: "+ usuario.getEmail());
         contaRepository.deleteById(id);
     }
 
