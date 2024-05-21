@@ -1,8 +1,10 @@
 package com.controle.conta.dto;
 
 import com.controle.auth.user.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Id;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -14,5 +16,6 @@ public class Conta {
     Double valor;
     Mes mes;
     Boolean positivo;
+    @DBRef
     Usuario usuario;
 }

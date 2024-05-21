@@ -16,6 +16,9 @@ public class GlobalExceptionHandler {
     // Handler genérico para outras exceções não mapeadas
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception ex) {
+
+        if(ex.getMessage().contains("Bad credentials"))
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Email ou senha inválidos");
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Ocorreu um erro interno no servidor.");
     }
 }

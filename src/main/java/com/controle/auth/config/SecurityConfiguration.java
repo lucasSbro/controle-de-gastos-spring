@@ -10,6 +10,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -25,7 +27,7 @@ public class SecurityConfiguration {
         .csrf()
         .disable()
         .authorizeHttpRequests()
-            .requestMatchers("/api/auth/**", "/v3/api-docs/**", "/swagger-ui/**")
+            .requestMatchers("/api/conta/**","/api/auth/**", "/v3/api-docs/**", "/swagger-ui/**")
         .permitAll()
         .anyRequest()
         .authenticated()

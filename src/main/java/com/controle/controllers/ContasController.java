@@ -14,6 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/conta")
 @SecurityRequirement(name = "bearerAuth")
@@ -29,7 +30,7 @@ public class ContasController {
 
     @GetMapping("/{mes}")
     public List<Conta> getContasMes(@PathVariable("mes") Mes mes){
-         return contaService.getContasMes(mes);
+        return contaService.getContasMes(mes);
     }
 
     @PostMapping
